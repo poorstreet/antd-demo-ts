@@ -13,7 +13,7 @@ const {Header, Content, Sider, Footer} = Layout;
 export default class Home extends Component {
     render() {
         return (<BrowserRouter>
-            <Layout>
+            <Layout style={{display:'flex',flexDirection:'column',height:'100%'}}>
                 <Header className="header">
                     <div className="logo"/>
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
@@ -22,7 +22,7 @@ export default class Home extends Component {
                         <Menu.Item key="3">nav 3</Menu.Item>
                     </Menu>
                 </Header>
-                <Layout>
+                <Layout style={{flexGrow:1}}>
                     <Sider width={200} className="site-layout-background">
                         <Menu
                             mode="inline"
