@@ -62,7 +62,7 @@ export default class Home extends Component<any, HomeState> {
         for (let router of this.state.routerList) {
             routerElements.push(<Route path={router.path} element={router.target}/>)
         }
-        return (<BrowserRouter>
+        return (
             <Layout style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
                 <Header className="header">
                     <div className="logo"/>
@@ -112,7 +112,6 @@ export default class Home extends Component<any, HomeState> {
                         </Content>
                     </Layout>
                 </Layout>
-            </Layout>
-        </BrowserRouter>);
+            </Layout>);
     }
 }
