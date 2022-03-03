@@ -92,6 +92,7 @@ export default class Home extends Component<any, HomeState> {
                             minHeight: 280,
                         }}
                     >
+                        <Link to = "/home/tool/1">工具1</Link>
                         <Outlet></Outlet>
                     </Content>
                 </Layout>

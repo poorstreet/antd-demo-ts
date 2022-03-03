@@ -1,6 +1,7 @@
 import {Button} from "antd";
 import React, {ReactNode} from "react";
 import Home from "../pages/Home";
+import Login from "../pages/Login";
 
 export interface RouterElement {
     id: string,
@@ -20,6 +21,7 @@ const routerList: RouterElement[] = [{
         id: "tool",
         title: "工具管理",
         path: "tool",
+        target: <Login/>,
         child: [{
             id: "1",
             title: "工具1",
@@ -37,7 +39,7 @@ const routerList: RouterElement[] = [{
             id: "user",
             title: "用户管理",
             path: "user",
-            target: null,
+            target: <Login/>,
             child: [{
                 id: "user1",
                 title: "用户管理",

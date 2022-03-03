@@ -15,12 +15,12 @@ const menuList: MenuElement[] = [
         child: [{
             id: "tool1",
             title: "工具1",
-            target: "tool/1"
+            target: "/home/tool/1"
         },
             {
                 id: "tool2",
                 title: "工具2",
-                target: "tool/2"
+                target: "/home/tool/2"
             }]
     },
     {
@@ -29,12 +29,12 @@ const menuList: MenuElement[] = [
         child: [{
             id: "user1",
             title: "用户管理",
-            target: "user/1"
+            target: "/home/user/1"
         },
             {
                 id: "user2",
                 title: "权限管理",
-                target: "user/2"
+                target: "/home/user/2"
             }]
     }
 
