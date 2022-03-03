@@ -36,8 +36,15 @@ export default class Home extends Component<any, HomeState> {
             } else {
                 let childMenuElements: any[] = [];
                 for (let childMenu of menuElement.child) {
-                    childMenuElements.push(<Menu.Item key={childMenu.id} icon={<UserOutlined/>}
-                                                      title={childMenu.title}>{childMenu.title}</Menu.Item>);
+                    let target;
+                    if(childMenu.target){
+                        target = <Menu.Item key={childMenu.id} icon={<UserOutlined/>}
+                                   title={childMenu.title}> <Link to = {childMenu.target}>{childMenu.title}</Link></Menu.Item>
+                    }else{
+                        target = <Menu.Item key={childMenu.id} icon={<UserOutlined/>}
+                                            title={childMenu.title}> {childMenu.title}</Menu.Item>;
+                    }
+                    childMenuElements.push(target);
                 }
                 menuElements.push(<SubMenu key={menuElement.id} icon={<UserOutlined/>}
                                            title={menuElement.title}>{childMenuElements}</SubMenu>);
