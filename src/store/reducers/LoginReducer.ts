@@ -1,18 +1,15 @@
-import {ILoginState} from "../states/LoginState";
 import {ILoginAction} from "../actions/LoginAction";
-import {LoginType} from "../types/LoginType";
+import {LoginType} from "../actions/types/LoginType";
+import {GlobalState, initGlobalState} from "../states/GlobalState";
 
-const initLoginState:ILoginState = {
-    login: false
-};
 
-const login = (state:ILoginState = initLoginState, action:ILoginAction):ILoginState => {
+const login = (state: GlobalState = initGlobalState, action: ILoginAction): GlobalState => {
     switch (action.type) {
         case LoginType.LOGIN:
             return {
                 ...state,
-                ...action.data,
-            };
+                ...action.data
+            }
         case LoginType.LOGOUT:
             return {
                 ...state,

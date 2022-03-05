@@ -10,6 +10,6 @@ export interface IUser {
  * 登录状态
  */
 export interface ILoginState {
-    login: false,
+    login: boolean,
     user?: IUser
 }

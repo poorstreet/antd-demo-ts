@@ -55,9 +55,9 @@ const routerList: RouterElement[] = [{
         }]
 
 }, {
-    id: "home",
+    id: "login",
     title: "登录",
     path: "/login",
-    target: <Button>登录</Button>
+    target: <Login/>
 }];
 export {routerList};

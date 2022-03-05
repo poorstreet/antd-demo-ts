@@ -1,12 +1,16 @@
-import {LoginType} from "../types/LoginType";
+import {LoginType} from "./types/LoginType";
 import {Dispatch} from "redux";
-import {IUser} from "../states/LoginState";
+import {ILoginState, IUser} from "../states/LoginState";
 
 export interface ILoginAction {
     type: LoginType,
-    data?: any
+    data: ILoginState
 }
 
-export const doLogin = (dispatch: Dispatch, user: IUser) => {
-    dispatch({type: LoginType.LOGIN, data: {user, login: true}})
+export const sendLoginAction = (dispatch: Dispatch, user: IUser) => {
+    dispatch({type: LoginType.LOGIN, data: {loginInfo: {user, login: true}}})
+}
+
+export const sendLogoutAction = (dispatch: Dispatch) => {
+    dispatch({type: LoginType.LOGOUT, data: {loginInfo: {user: {}, login: false}}})
 }
