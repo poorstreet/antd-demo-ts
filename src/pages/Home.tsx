@@ -1,16 +1,15 @@
-import React, {Component, ReactNode} from "react";
-import {BrowserRouter, Link, Route, Routes, Outlet} from "react-router-dom";
-import {Breadcrumb, Button, Layout, Menu,} from 'antd';
+import React, {Component} from "react";
+import {Link, Outlet} from "react-router-dom";
+import {Breadcrumb, Layout, Menu,} from 'antd';
 import {UserOutlined} from '@ant-design/icons';
 import {MenuElement, menuList} from "../config/MenuConfig";
 
 import 'antd/dist/antd.css'
 import './Home.css';
-import {routerList} from "../config/RouterConfig";
 
 
 const {SubMenu} = Menu;
-const {Header, Content, Sider, Footer} = Layout;
+const {Header, Content, Sider} = Layout;
 
 interface HomeState {
 
@@ -37,10 +36,11 @@ export default class Home extends Component<any, HomeState> {
                 let childMenuElements: any[] = [];
                 for (let childMenu of menuElement.child) {
                     let target;
-                    if(childMenu.target){
+                    if (childMenu.target) {
                         target = <Menu.Item key={childMenu.id} icon={<UserOutlined/>}
-                                   title={childMenu.title}> <Link to = {childMenu.target}>{childMenu.title}</Link></Menu.Item>
-                    }else{
+                                            title={childMenu.title}> <Link
+                            to={childMenu.target}>{childMenu.title}</Link></Menu.Item>
+                    } else {
                         target = <Menu.Item key={childMenu.id} icon={<UserOutlined/>}
                                             title={childMenu.title}> {childMenu.title}</Menu.Item>;
                     }
@@ -68,13 +68,7 @@ export default class Home extends Component<any, HomeState> {
                         defaultOpenKeys={['sub1']}
                         style={{height: '100%', borderRight: 0}}
                     >
-                        {/*<SubMenu key="sub1" icon={<UserOutlined/>} title="subnav 1">
-                            {
-                                this.state.routerList.map((r, index) => {
-                                    return (<Menu.Item key={r.id}><Link to={r.path}>{r.title}</Link></Menu.Item>)
-                                })
-                            }
-                        </SubMenu>*/menuElements}
+                        {menuElements}
                     </Menu>
 
                 </Sider>
@@ -92,7 +86,7 @@ export default class Home extends Component<any, HomeState> {
                             minHeight: 280,
                         }}
                     >
-                        <Link to = "/home/tool/1">工具1</Link>
+                        <Link to="/home/tool/1">工具1</Link>
                         <Outlet></Outlet>
                     </Content>
                 </Layout>

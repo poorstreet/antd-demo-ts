@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Button} from "antd";
 import {sendLoginAction, sendLogoutAction} from "../store/actions/LoginAction";
 import {IUser} from "../store/states/LoginState";
+import {Navigate} from "react-router-dom";
 
 
 class Login extends Component<any, any> {
@@ -18,9 +19,8 @@ class Login extends Component<any, any> {
     render() {
         return (
             <div>
-                <div> {this.props.loginInfo.login ? "欢迎：" + this.props.loginInfo.user.name : "请登录"}</div>
+                {this.props.loginInfo.login && <Navigate to="/home"></Navigate>}
                 <Button onClick={this.onLogin}>登录</Button>
-                <Button onClick={this.onLogout}>登出</Button>
             </div>
         );
     }
